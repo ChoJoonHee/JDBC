@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- namespace에는 마이바티스의 인터페이스의 전체 경로가 들어갑니다. -->
+  <mapper namespace="com.zerock.mapper.ScoreMapper">
+  
+  	<!--  #{}는 pstmt구문의 ?를 대신하며, 여러값을 전달할 때는 반드시 VO를 통해 전달 해야합니다 -->
+  	
+  	<insert id="scoreInsert">
+  		insert into score01(name, kor, eng, math)
+  			values(#{name}, #{kor}, #{eng}, #{math})
+  	</insert>
+  
+  	<!-- resultType 속성의 값은 select의 결과를 특정 객체로 만들어 반환합니다. -->
+  	<!-- VO에 기술된 멤버변수는 DB컬럼명과 정확히 일치해야 한다. -->
+  	<select id="scoreSelect" resultType="com.zerock.command.ScoreVO">
+  		select * from score01
+  	</select>
+  
+    
+	<delete id="scoreDelete" parameterType="String">
+	   	delete from score01 where num = #{num}
+	</delete>
+  
+  
+  
+  
+  
+  
+  
+  </mapper>
+  

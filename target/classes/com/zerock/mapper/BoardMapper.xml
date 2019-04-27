@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.zerock.mapper.BoardMapper">
+  	
+  	<!-- #{} 값에 여러 값을 전달하고 싶다면, VO를 이용하거나, Map을 이용해야 합니다 -->
+  	<insert id="boardInsert" parameterType="java.util.HashMap">
+  		insert into board01(name, title, content)
+  			values(#{p1}, #{p2}, #{p3} )
+  	</insert>
+  
+  	<select id="boardSelect" resultType="com.zerock.command.BoardVO">
+  		select * from board01
+  	</select>
+  </mapper>
+  
+  
